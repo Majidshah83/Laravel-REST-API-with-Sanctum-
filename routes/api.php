@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/product',[ProductController::class,'index']);
 Route::post('/products',[ProductController::class,'store']);
+Route::get('/getSingleProduct/{id}',[ProductController::class,'edit']);
+Route::put('/updateProduct/{id}',[ProductController::class,'update']);
