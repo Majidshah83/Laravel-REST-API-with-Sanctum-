@@ -97,7 +97,16 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        if(!empty($product))
+        {
+         $product->delete();
+          return $product;
+        }
+        else{
+            return "Product not Found !";
+
+        }
 
     }
 }
