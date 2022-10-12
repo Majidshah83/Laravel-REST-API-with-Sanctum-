@@ -20,3 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/product',function(){
 return Product::all();
 });
+Route::post('/products',function(){
+return Product::create([
+'name'=>'Product two',
+'slug'=>'product-two',
+'descption'=>'This is first product',
+'price'=>'99.99',
+
+]);
+
+});
