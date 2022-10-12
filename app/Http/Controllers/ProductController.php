@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -11,9 +10,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        ini_set('max_execution_time', 300); //5mint
+    }
     public function index()
     {
         //
+        return Product::all();
     }
 
     /**
@@ -24,6 +28,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -34,7 +39,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        return Product::create($request->all());
+
     }
 
     /**
@@ -46,6 +53,7 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -57,6 +65,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -69,6 +78,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**
@@ -80,5 +90,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+
     }
 }
