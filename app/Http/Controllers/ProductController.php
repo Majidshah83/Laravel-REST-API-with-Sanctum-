@@ -3,8 +3,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Requests\ProductRequest;
 class ProductController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +16,7 @@ class ProductController extends Controller
     {
         ini_set('max_execution_time', 300); //5mint
     }
+
     public function index()
     {
         //
@@ -37,8 +40,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
+       
 
         return Product::create($request->all());
 
