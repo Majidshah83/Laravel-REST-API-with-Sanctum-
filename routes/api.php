@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
@@ -31,3 +32,4 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 Route::put('/updateProduct/{id}',[ProductController::class,'update']);
 Route::delete('/deleteProduct/{id}',[ProductController::class,'destroy']);
 });
+Route::post('/userRigster',[AuthController::class,'register']);
