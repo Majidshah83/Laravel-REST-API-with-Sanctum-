@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Response;
+use Laravel\Sanctum\HasApiTokens;
 class AuthController extends Controller
 {
     public function register(RegisterRequest $request)
@@ -23,5 +25,13 @@ class AuthController extends Controller
             'token'=>$token
         ];
         return $response;
+    }
+    public function logOut(Request $request)
+    {
+        Auth()->user()->tokens()->delete();
+        return [
+            'Message'=>'Logg out',
+        ];
+
     }
 }
