@@ -20,14 +20,14 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//public routes
 Route::get('/product',[ProductController::class,'index']);
-Route::post('/products',[ProductController::class,'store']);
 Route::get('/getSingleProduct/{id}',[ProductController::class,'edit']);
+Route::get('/searchProduct/{name}',[ProductController::class,'search']);
+
+//protected routes
+Route::group(['middleware' => ['auth:sanctum']], function() {
+ Route::post('/products',[ProductController::class,'store']);
 Route::put('/updateProduct/{id}',[ProductController::class,'update']);
 Route::delete('/deleteProduct/{id}',[ProductController::class,'destroy']);
-Route::get('/searchProduct/{name}',[ProductController::class,'search']);
-Route::get('/searchProduct/{name}',[ProductController::class,'search']);
-
-Route::group(['middleware' => ['auth:sanctum']], function() {
-
 });
