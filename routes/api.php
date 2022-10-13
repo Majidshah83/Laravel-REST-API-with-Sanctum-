@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\http\Controllers\ProductController;
+use PHPUnit\TextUI\XmlConfiguration\Group;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +26,8 @@ Route::get('/getSingleProduct/{id}',[ProductController::class,'edit']);
 Route::put('/updateProduct/{id}',[ProductController::class,'update']);
 Route::delete('/deleteProduct/{id}',[ProductController::class,'destroy']);
 Route::get('/searchProduct/{name}',[ProductController::class,'search']);
+Route::get('/searchProduct/{name}',[ProductController::class,'search']);
+
+Route::group(['middleware' => ['auth:sanctum']], function() {
+
+});
