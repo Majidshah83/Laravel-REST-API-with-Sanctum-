@@ -34,3 +34,4 @@ Route::delete('/deleteProduct/{id}',[ProductController::class,'destroy']);
 Route::post('/logOut',[AuthController::class,'logOut']);
 });
 Route::post('/userRigster',[AuthController::class,'register']);
+Route::post('/userLogin',[AuthController::class,'login']);
